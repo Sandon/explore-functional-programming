@@ -16,11 +16,25 @@ const replace = curry((scheme, replacement, str) => {
 const filter = curry((fn, arr) => {
   return arr.filter(fn)
 })
-  
+
 const map = curry((fn, arr) => {
   return arr.map(fn)
 })
 
 /* usage */
-// normal vs currying
-match(/\s+/g)
+
+console.log(match(/\s+/g, 'hello world'))
+// or
+console.log(match(/\s+/g)('hello world'))
+
+
+const hasSpaces = match(/\s+/g)
+console.log(filter(hasSpaces, ['hellow world', 'haha']))
+// or
+const findSpaces = filter(hasSpaces)
+console.log(findSpaces(['hellow world', 'haha']))
+
+
+const noVowels = replace(/[aeiou]/ig)
+const censored = noVowels('*')
+console.log(censored('hello world'))
