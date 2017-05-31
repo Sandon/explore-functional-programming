@@ -15,7 +15,6 @@ console.log(sentences(['hello world', 'js html']))
 const filterQs = (xs) => {
   _.filter((x) => _.match(/q/i, x), xs)
 }
-
 // to
 const fpFilterQs = _.filter(_.match(/q/i))
 console.log(fpFilterQs(['q', 'hello', 'q2', 'world']))
